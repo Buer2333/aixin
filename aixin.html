@@ -193,7 +193,16 @@
                 );
             }
 
-            var image = (function () {
+            // function col(){
+            //     var str="#"
+            //     for(var i=0;i<6;i++){
+            //         str+=Math.floor(Math.random()*16).toString(16);
+            //     }
+            //     return str;
+            // }
+
+
+            var image = function (color) {
                 var canvas = document.createElement('canvas'),
                     context = canvas.getContext('2d');
                 canvas.width = settings.particles.size;
@@ -213,12 +222,12 @@
                     context.lineTo(point.x, point.y);
                 }
                 context.closePath();
-                context.fillStyle = '#ea80b0';
+                context.fillStyle = color;
                 context.fill();
                 var image = new Image();
                 image.src = canvas.toDataURL();
                 return image;
-            })();
+            };
 
             function render() {
                 requestAnimationFrame(render);
@@ -237,7 +246,8 @@
                 }
 
                 particles.update(deltaTime);
-                particles.draw(context, image);
+                const colors = ['#FF3300', '#FF9933', '#FFCC00', '#00CC99', '#0099FF', '#0066FF', '#FF99FF'];
+                particles.draw(context, image(colors[Math.floor(Math.random()*7)]));
             }
 
             function onResize() {
