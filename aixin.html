@@ -193,16 +193,7 @@
                 );
             }
 
-            // function col(){
-            //     var str="#"
-            //     for(var i=0;i<6;i++){
-            //         str+=Math.floor(Math.random()*16).toString(16);
-            //     }
-            //     return str;
-            // }
-
-
-            var image = function (color) {
+            var image = function () {
                 var canvas = document.createElement('canvas'),
                     context = canvas.getContext('2d');
                 canvas.width = settings.particles.size;
@@ -221,9 +212,17 @@
                     t += 0.01; point = to(t);
                     context.lineTo(point.x, point.y);
                 }
-                context.closePath();
-                context.fillStyle = color;
+                var gradient = context.createLinearGradient(0,settings.particles.size / 2 - point.y * settings.particles.size / 350,settings.particles.size / 2 + point.x * settings.particles.size / 350,0);
+                gradient.addColorStop(0,"#EF4A53");
+                gradient.addColorStop(0.15,"#CC6633");
+                gradient.addColorStop(0.30,"#FFB463");
+                gradient.addColorStop(0.50,"#254356");
+                gradient.addColorStop(0.65,"#33D5D4");
+                gradient.addColorStop(0.80,"#0087C9");
+                gradient.addColorStop(1,"#5B4097");
+                context.fillStyle = gradient;
                 context.fill();
+                context.closePath();
                 var image = new Image();
                 image.src = canvas.toDataURL();
                 return image;
@@ -246,8 +245,8 @@
                 }
 
                 particles.update(deltaTime);
-                const colors = ['#FF3300', '#FF9933', '#FFCC00', '#00CC99', '#0099FF', '#0066FF', '#FF99FF'];
-                particles.draw(context, image(colors[Math.floor(Math.random()*7)]));
+                // const colors = ['#0087C9', '#EF4A53', '#FFB463', '#33D5D4', '#254356', '#5B4097', '#0087C9'];
+                particles.draw(context, image());
             }
 
             function onResize() {
