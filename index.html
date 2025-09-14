@@ -3,29 +3,91 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Hibachi Catering</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Favorite Hibachi Catering</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Welcome to Hibachi Catering</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="allergy.html">Allergy Form</a>
-      <a href="service.html">Service Area</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="bg-gray-50 text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-red-500 text-white py-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">Favorite Hibachi Catering</h1>
+      <p class="mt-2 text-lg">High-quality hibachi with professional chef performances</p>
+      <p class="mt-2">📞 Contact: (123) 456-7890 | ✉ info@favoritehibachi.com</p>
+    </div>
   </header>
-  <main>
-    <section>
-      <h2>Bring the Hibachi Experience to Your Backyard</h2>
-      <p>We provide professional hibachi chefs for private parties, birthdays, and events. Enjoy delicious food and entertaining chef performances at your home.</p>
-      <img src="images/chef_show.jpg" alt="Hibachi Chef Performance" class="hero">
-    </section>
-  </main>
-  <footer>
-    <p>© 2025 Hibachi Catering. All Rights Reserved.</p>
+
+  <!-- Menu Section -->
+  <section id="menu" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Menu</h2>
+      <p class="mb-4">Choose your preferred set or ingredients, our chefs will cook live for you.</p>
+      <ul class="max-w-lg mx-auto text-left">
+        <li>🥩 Beef Set</li>
+        <li>🍗 Chicken Set</li>
+        <li>🍤 Seafood Set</li>
+        <li>🥗 Vegetable Set</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Allergy Form -->
+  <section id="allergy" class="py-16 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Allergy Information</h2>
+      <p class="mb-8 text-gray-600">Please let us know if you or your guests have any food allergies so we can prepare accordingly.</p>
+
+      <form action="https://formspree.io/f/xwpnzgpr" method="POST" class="max-w-lg mx-auto bg-white shadow-md rounded-lg p-8">
+        <div class="mb-4 text-left">
+          <label class="block text-gray-700 mb-2" for="name">Name</label>
+          <input type="text" name="name" id="name" required class="w-full border border-gray-300 rounded-lg p-2" />
+        </div>
+
+        <div class="mb-4 text-left">
+          <label class="block text-gray-700 mb-2" for="email">Email</label>
+          <input type="email" name="email" id="email" required class="w-full border border-gray-300 rounded-lg p-2" />
+        </div>
+
+        <div class="mb-4 text-left">
+          <label class="block text-gray-700 mb-2" for="allergies">Allergies (e.g., peanuts, seafood, sesame, etc.)</label>
+          <textarea name="allergies" id="allergies" rows="4" class="w-full border border-gray-300 rounded-lg p-2"></textarea>
+        </div>
+
+        <button type="submit" class="bg-red-500 text-white px-6 py-2 rounded-lg shadow hover:bg-red-600 transition">
+          Submit
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Services</h2>
+      <p>We provide live hibachi catering across North America for birthdays, corporate events, family gatherings, and more.</p>
+    </div>
+  </section>
+
+  <!-- Chef Performance -->
+  <section id="performance" class="py-16 bg-gray-100">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6">Chef Performances</h2>
+      <p class="mb-8">Experience real-time hibachi chef performances!</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <img src="chef1.jpg" alt="Hibachi Chef Performance 1" class="rounded-lg shadow">
+        <img src="chef2.jpg" alt="Hibachi Chef Performance 2" class="rounded-lg shadow">
+        <img src="chef3.jpg" alt="Hibachi Chef Performance 3" class="rounded-lg shadow">
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-red-500 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>📞 Contact: (123) 456-7890 | ✉ info@favoritehibachi.com</p>
+      <p>© 2025 Favorite Hibachi Catering. All rights reserved.</p>
+    </div>
   </footer>
+
 </body>
 </html>
