@@ -3,31 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menu - Hibachi Catering</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Menu | Favorite Hibachi Catering</title>
+  <meta name="description" content="Hibachi catering menu — proteins, sides, and appetizers. Each guest picks 2 proteins. $50 per adult, $25 per kid.">
+  <meta property="og:title" content="Menu | Favorite Hibachi Catering">
+  <meta property="og:description" content="Pick 2 proteins per guest. $50/adult, $25/kid. Premium upgrades available.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://osakahibachi2door.com/menu.html">
+  <meta property="og:image" content="https://osakahibachi2door.com/images/chef1.jpg">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <header>
-    <h1>Our Menu</h1>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html">Menu</a>
-      <a href="allergy.html">Allergy Form</a>
-      <a href="service.html">Service Area</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+<body class="bg-gray-50 text-gray-800">
+
+  <nav class="bg-white shadow-md sticky top-0 z-50">
+    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3">
+      <a href="index.html" class="text-red-600 font-bold text-xl">🔥 Favorite Hibachi</a>
+      <div class="flex flex-wrap gap-4 text-sm md:text-base">
+        <a href="index.html" class="hover:text-red-500">Home</a>
+        <a href="menu.html" class="hover:text-red-500 font-semibold">Menu</a>
+        <a href="service.html" class="hover:text-red-500">Service Area</a>
+        <a href="allergy.html" class="hover:text-red-500">Allergy Form</a>
+        <a href="contact.html" class="hover:text-red-500">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-red-500 text-white py-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-4xl font-bold">Our Menu</h1>
+      <p class="mt-2 text-lg">Each guest picks <span class="font-bold">2 proteins</span> — kids choose from chicken, steak, or shrimp.</p>
+    </div>
   </header>
-  <main>
-    <h2>Popular Dishes</h2>
-    <ul>
-      <li>Hibachi Chicken - $25</li>
-      <li>Hibachi Steak - $30</li>
-      <li>Hibachi Shrimp - $28</li>
-      <li>Vegetarian Hibachi - $22</li>
-    </ul>
+
+  <main class="py-16">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center">Proteins (Included)</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">Chicken</span></div>
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">NY Strip Steak</span></div>
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">Shrimp</span></div>
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">Scallops</span></div>
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">Salmon</span></div>
+          <div class="bg-white rounded-xl shadow p-4 text-center"><span class="font-bold">Tofu</span></div>
+        </div>
+      </section>
+
+      <section class="mb-12">
+        <h2 class="text-3xl font-bold mb-6 text-center">Premium Upgrades</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          <span class="inline-block px-4 py-2 bg-yellow-100 rounded-xl font-bold">Filet Mignon <span class="text-red-600">+$5</span></span>
+          <span class="inline-block px-4 py-2 bg-yellow-100 rounded-xl font-bold">Lobster Tail <span class="text-red-600">+$10</span></span>
+        </div>
+      </section>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="font-bold text-xl mb-3">Side Orders</h3>
+          <ul class="space-y-1">
+            <li>Fried Rice <span class="text-red-600">+$4</span></li>
+            <li>Extra Chicken/Steak/Shrimp/Scallop/Salmon/Tofu <span class="text-red-600">+$10 ea</span></li>
+            <li>Extra Filet Mignon <span class="text-red-600">+$15</span></li>
+            <li>Extra Lobster Tail <span class="text-red-600">+$20</span></li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-xl shadow-md p-6">
+          <h3 class="font-bold text-xl mb-3">Appetizers</h3>
+          <ul class="space-y-1">
+            <li>Edamame <span class="text-red-600">+$5</span></li>
+            <li>Gyoza (Pork, Chicken, or Vegetable) <span class="text-red-600">$10</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
+        <h3 class="font-bold text-xl mb-2">Base Pricing</h3>
+        <p><span class="font-bold">$500</span> minimum per party · <span class="font-bold">$50</span> per adult · <span class="font-bold">$25</span> per kid (12 and under)</p>
+        <a href="index.html#book-now" class="inline-block mt-4 bg-red-500 text-white px-6 py-2 rounded-lg shadow hover:bg-red-600 transition">Book Now</a>
+      </div>
+    </div>
   </main>
-  <footer>
-    <p>© 2025 Hibachi Catering</p>
+
+  <footer class="bg-red-500 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>📞 <a href="tel:+12674146687" class="hover:underline">(267) 414-6687</a> | ✉ <a href="mailto:osakahibachi2door@gmail.com" class="hover:underline">osakahibachi2door@gmail.com</a></p>
+      <p>© 2025 Favorite Hibachi Catering. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
