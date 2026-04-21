@@ -12,18 +12,25 @@
   <meta property="og:image" content="https://osakahibachi2door.com/images/chef1.jpg">
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🔥</text></svg>">
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :focus-visible { outline: 2px solid #ef4444; outline-offset: 2px; }
+  </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
   <nav class="bg-white shadow-md sticky top-0 z-50">
-    <div class="container mx-auto flex flex-wrap items-center justify-between px-4 py-3">
-      <a href="index.html" class="text-red-600 font-bold text-xl">🔥 Favorite Hibachi</a>
-      <div class="flex flex-wrap gap-4 text-sm md:text-base">
-        <a href="index.html" class="hover:text-red-500">Home</a>
-        <a href="menu.html" class="hover:text-red-500">Menu</a>
-        <a href="service.html" class="hover:text-red-500 font-semibold">Service Area</a>
-        <a href="allergy.html" class="hover:text-red-500">Allergy Form</a>
-        <a href="contact.html" class="hover:text-red-500">Contact</a>
+    <div class="container mx-auto flex items-center justify-between px-4 py-3 relative">
+      <a href="index.html" class="text-red-600 font-bold text-xl"><span aria-hidden="true">🔥</span> Favorite Hibachi</a>
+      <button id="nav-toggle" aria-label="Toggle navigation" aria-expanded="false"
+        class="md:hidden text-3xl text-red-600 leading-none px-2 rounded">☰</button>
+      <div id="nav-menu"
+        class="hidden md:flex flex-col md:flex-row absolute md:static top-full left-0 right-0 bg-white md:bg-transparent shadow-md md:shadow-none border-t md:border-0 md:items-center gap-0 md:gap-5 text-base">
+        <a href="index.html" class="px-4 py-3 md:p-0 hover:text-red-500">Home</a>
+        <a href="menu.html" class="px-4 py-3 md:p-0 hover:text-red-500">Menu</a>
+        <a href="service.html" class="px-4 py-3 md:p-0 hover:text-red-500 font-semibold">Service Area</a>
+        <a href="allergy.html" class="px-4 py-3 md:p-0 hover:text-red-500">Allergy Form</a>
+        <a href="contact.html" class="px-4 py-3 md:p-0 hover:text-red-500">Contact</a>
+        <a href="index.html#book-now" class="mx-4 my-2 md:mx-0 md:my-0 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 font-semibold text-center">Book Now</a>
       </div>
     </div>
   </nav>
@@ -52,9 +59,31 @@
 
   <footer class="bg-red-500 text-white py-6">
     <div class="container mx-auto text-center">
-      <p>📞 <a href="tel:+12674146687" class="hover:underline">(267) 414-6687</a> | ✉ <a href="mailto:osakahibachi2door@gmail.com" class="hover:underline">osakahibachi2door@gmail.com</a></p>
+      <p><span aria-hidden="true">📞</span> <a href="tel:+12674146687" class="hover:underline">(267) 414-6687</a> | <span aria-hidden="true">✉</span> <a href="mailto:osakahibachi2door@gmail.com" class="hover:underline">osakahibachi2door@gmail.com</a></p>
       <p>© 2025 Favorite Hibachi Catering. All rights reserved.</p>
     </div>
   </footer>
+
+  <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 hidden bg-red-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-red-600 z-40 text-2xl leading-none">↑</button>
+  <script>
+    (function(){
+      const btn = document.getElementById('nav-toggle');
+      const menu = document.getElementById('nav-menu');
+      btn.addEventListener('click', () => {
+        const isHidden = menu.classList.toggle('hidden');
+        btn.setAttribute('aria-expanded', String(!isHidden));
+      });
+      menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+        if (window.innerWidth < 768) menu.classList.add('hidden');
+      }));
+    })();
+    (function(){
+      const b = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        b.classList.toggle('hidden', window.scrollY < 400);
+      });
+      b.addEventListener('click', () => window.scrollTo({top: 0, behavior: 'smooth'}));
+    })();
+  </script>
 </body>
 </html>
