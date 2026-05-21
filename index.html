@@ -17,6 +17,7 @@
     details > summary::-webkit-details-marker { display: none; }
     html { scroll-behavior: smooth; scroll-padding-top: 80px; }
   </style>
+  <script src="attribution.js" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -32,7 +33,7 @@
         <a href="menu.html" class="px-4 py-3 md:p-0 hover:text-red-500">Menu</a>
         <a href="service.html" class="px-4 py-3 md:p-0 hover:text-red-500">Service Area</a>
         <a href="allergy.html" class="px-4 py-3 md:p-0 hover:text-red-500">Allergy Form</a>
-        <a href="contact.html" class="px-4 py-3 md:p-0 hover:text-red-500">Contact</a>
+        <a href="tel:+12674146687" class="px-4 py-3 md:p-0 hover:text-red-500">Call</a>
         <a href="#book-now" class="mx-4 my-2 md:mx-0 md:my-0 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 font-semibold text-center">Book Now</a>
       </div>
     </div>
@@ -169,13 +170,13 @@
           <h3 class="text-2xl font-bold mb-2">Party of 15+ Package</h3>
           <p class="mb-4 opacity-90">Best value for birthdays, grad parties, and family gatherings</p>
           <ul class="text-left space-y-2 mb-6">
-            <li><span aria-hidden="true">✓</span> Flat <strong>$55/adult</strong>, <strong>$30/kid</strong></li>
+            <li><span aria-hidden="true">✓</span> Flat <strong><span data-price="adultRate">$55</span>/adult</strong>, <strong><span data-price="kidRate">$30</span>/kid</strong></li>
             <li><span aria-hidden="true">✓</span> Sun–Fri code
               <span class="inline-flex items-center gap-2 bg-white/20 px-2 py-0.5 rounded ml-1">
-                <code class="font-mono font-bold">WEEK55OFF</code>
-                <button type="button" class="copy-code text-xs underline hover:no-underline" data-code="WEEK55OFF">copy</button>
+                <code class="font-mono font-bold" data-price-text="weekdayPromo">WEEK55OFF</code>
+                <button type="button" class="copy-code text-xs underline hover:no-underline" data-code="WEEK55OFF" data-code-key="weekdayPromo">copy</button>
               </span>
-              <span>for $55 off</span>
+              <span>for <span data-price="weekdayDiscount">$55</span> off</span>
             </li>
             <li><span aria-hidden="true">✓</span> Birthday Mon–Thu bonus: <strong>2 free lobsters</strong> with
               <span class="inline-flex items-center gap-2 bg-white/20 px-2 py-0.5 rounded ml-1">
@@ -192,9 +193,9 @@
         <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20">
           <h3 class="font-semibold text-xl mb-2">Base Pricing</h3>
           <ul class="list-disc list-inside space-y-1">
-            <li><span class="font-bold">$550</span> minimum per party</li>
-            <li><span class="font-bold">$55</span> per adult</li>
-            <li><span class="font-bold">$30</span> per kid (12 and under)</li>
+            <li><span class="font-bold" data-price="minTotal">$550</span> minimum per party</li>
+            <li><span class="font-bold" data-price="adultRate">$55</span> per adult</li>
+            <li><span class="font-bold" data-price="kidRate">$30</span> per kid (12 and under)</li>
           </ul>
         </div>
         <div class="bg-white/10 backdrop-blur rounded-xl p-6 border border-white/20">
@@ -238,7 +239,7 @@
             <span>How much deposit is required?</span>
             <span aria-hidden="true" class="text-red-500 group-open:rotate-45 transition text-xl leading-none">+</span>
           </summary>
-          <p class="mt-3 text-gray-600">A $550 party minimum applies. Exact deposit policy varies by party size — contact us for details.</p>
+          <p class="mt-3 text-gray-600">A <span data-price="minTotal">$550</span> party minimum applies. Exact deposit policy varies by party size — contact us for details.</p>
         </details>
         <details class="bg-white rounded-xl shadow p-5 group">
           <summary class="font-semibold cursor-pointer list-none flex justify-between items-center">
@@ -315,15 +316,22 @@
       <h2 class="text-3xl md:text-4xl font-bold mb-4">Book Your Hibachi Party</h2>
       <p class="mb-8 max-w-xl mx-auto">Tell us your date, party size, and menu choices — we'll get back to you within 24 hours.</p>
       <form id="booking-form" action="https://formspree.io/f/xwpnzgpr" method="POST" class="max-w-2xl mx-auto bg-white text-gray-800 shadow-2xl rounded-2xl p-6 md:p-8 text-left">
+        <input type="hidden" name="_subject" value="Booking Request">
+        <input type="hidden" name="form_type" value="booking">
+        <input type="hidden" name="_next" value="https://osakahibachi2door.com/thanks.html">
         <div class="grid md:grid-cols-2 gap-4">
           <div>
             <label class="block text-gray-700 mb-2 font-medium" for="name">Your Name *</label>
             <input type="text" name="name" id="name" required class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
           </div>
           <div>
-            <label class="block text-gray-700 mb-2 font-medium" for="contact">Phone / Email *</label>
-            <input type="text" name="contact" id="contact" required class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
+            <label class="block text-gray-700 mb-2 font-medium" for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone" inputmode="tel" autocomplete="tel" placeholder="(555) 123-4567" class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
           </div>
+        </div>
+        <div class="mt-4">
+          <label class="block text-gray-700 mb-2 font-medium" for="email">Email <span class="text-gray-400 text-sm font-normal">(phone or email required)</span></label>
+          <input type="email" name="email" id="email" autocomplete="email" placeholder="you@example.com" class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
         </div>
         <div class="mt-4">
           <label class="block text-gray-700 mb-2 font-medium" for="date">Event Date *</label>
@@ -332,7 +340,7 @@
         <div class="grid grid-cols-2 gap-4 mt-4">
           <div>
             <label class="block text-gray-700 mb-2 font-medium" for="adults">Adults</label>
-            <input type="number" name="adults" id="adults" value="2" min="0" required class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
+            <input type="number" name="adults" id="adults" value="0" min="0" required class="w-full border border-gray-300 rounded-lg p-2 focus:border-red-500 focus:ring-1 focus:ring-red-500 outline-none" />
           </div>
           <div>
             <label class="block text-gray-700 mb-2 font-medium" for="kids">Kids (12 &amp; under)</label>
@@ -340,12 +348,12 @@
           </div>
         </div>
 
-        <div class="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+        <div id="price-card" class="mt-4 bg-yellow-50 border border-yellow-200 rounded-lg p-4 hidden">
           <div class="flex justify-between items-center">
             <span class="text-gray-700 font-semibold">Estimated base total:</span>
             <span class="text-2xl font-bold text-red-600" id="price-total">$550</span>
           </div>
-          <p class="text-xs text-gray-500 mt-1">$550 minimum · $55/adult · $30/kid · Travel fee and upgrades not included</p>
+          <p class="text-xs text-gray-500 mt-1"><span data-price="minTotal">$550</span> minimum · <span data-price="adultRate">$55</span>/adult · <span data-price="kidRate">$30</span>/kid · Travel fee and upgrades not included</p>
         </div>
 
         <div class="mt-6">
@@ -372,12 +380,14 @@
     <div class="container mx-auto text-center px-4">
       <p><span aria-hidden="true">📞</span> <a href="tel:+12674146687" class="hover:underline">(267) 414-6687</a> | <span aria-hidden="true">✉</span> <a href="mailto:osakahibachi2door@gmail.com" class="hover:underline">osakahibachi2door@gmail.com</a></p>
       <p class="mt-1">© 2025 Favorite Hibachi Catering. All rights reserved.</p>
+      <p class="mt-1 text-sm opacity-90"><a href="privacy.html" class="hover:underline">Privacy</a> · <a href="terms.html" class="hover:underline">Terms</a></p>
     </div>
   </footer>
 
   <!-- Back to top -->
   <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 hidden bg-red-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-red-600 z-40 text-2xl leading-none">↑</button>
 
+  <script src="pricing.js"></script>
   <script>
     // Nav toggle (mobile hamburger)
     (function(){
@@ -446,8 +456,9 @@
         rows.innerHTML = '';
         for (let i = 1; i <= a; i++) rows.append(buildRow(`Adult ${i}`, ADULT));
         for (let i = 1; i <= k; i++) rows.append(buildRow(`Kid ${i}`, KID));
-        const base = Math.max(550, a*55 + k*30);
+        const base = Math.max(PRICING.minTotal, a*PRICING.adultRate + k*PRICING.kidRate);
         priceTotal.textContent = '$' + base;
+        document.getElementById('price-card').classList.toggle('hidden', (a + k) === 0);
         syncMenu();
       }
       function syncMenu(){
@@ -461,7 +472,15 @@
       kids.addEventListener('input', rebuild);
       rebuild();
 
-      document.getElementById('booking-form').addEventListener('submit', () => {
+      document.getElementById('booking-form').addEventListener('submit', (e) => {
+        const phone = $('phone').value.trim();
+        const email = $('email').value.trim();
+        if (!phone && !email) {
+          e.preventDefault();
+          alert('Please provide your phone or email so we can reach you.');
+          $('phone').focus();
+          return;
+        }
         const btn = document.getElementById('submit-btn');
         btn.disabled = true;
         document.getElementById('submit-text').classList.add('hidden');

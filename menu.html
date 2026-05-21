@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Menu | Favorite Hibachi Catering</title>
+  <!-- ⚠️ Prices below are hardcoded — JS cannot inject into <meta> content. Sync with pricing.js PRICING.adultRate / PRICING.kidRate when changing. -->
   <meta name="description" content="Hibachi catering menu — proteins, sides, and appetizers. Each guest picks 2 proteins. $55 per adult, $30 per kid.">
   <meta property="og:title" content="Menu | Favorite Hibachi Catering">
   <meta property="og:description" content="Pick 2 proteins per guest. $55/adult, $30/kid. Premium upgrades available.">
@@ -15,6 +16,7 @@
   <style>
     :focus-visible { outline: 2px solid #ef4444; outline-offset: 2px; }
   </style>
+  <script src="attribution.js" defer></script>
 </head>
 <body class="bg-gray-50 text-gray-800">
 
@@ -29,7 +31,7 @@
         <a href="menu.html" class="px-4 py-3 md:p-0 hover:text-red-500 font-semibold">Menu</a>
         <a href="service.html" class="px-4 py-3 md:p-0 hover:text-red-500">Service Area</a>
         <a href="allergy.html" class="px-4 py-3 md:p-0 hover:text-red-500">Allergy Form</a>
-        <a href="contact.html" class="px-4 py-3 md:p-0 hover:text-red-500">Contact</a>
+        <a href="tel:+12674146687" class="px-4 py-3 md:p-0 hover:text-red-500">Call</a>
         <a href="index.html#book-now" class="mx-4 my-2 md:mx-0 md:my-0 bg-red-500 text-white px-4 py-2 rounded-lg shadow hover:bg-red-600 font-semibold text-center">Book Now</a>
       </div>
     </div>
@@ -86,7 +88,7 @@
 
       <div class="bg-red-50 border border-red-200 rounded-xl p-6 text-center">
         <h3 class="font-bold text-xl mb-2">Base Pricing</h3>
-        <p><span class="font-bold">$550</span> minimum per party · <span class="font-bold">$55</span> per adult · <span class="font-bold">$30</span> per kid (12 and under)</p>
+        <p><span class="font-bold" data-price="minTotal">$550</span> minimum per party · <span class="font-bold" data-price="adultRate">$55</span> per adult · <span class="font-bold" data-price="kidRate">$30</span> per kid (12 and under)</p>
         <a href="index.html#book-now" class="inline-block mt-4 bg-red-500 text-white px-6 py-2 rounded-lg shadow hover:bg-red-600 transition">Book Now</a>
       </div>
     </div>
@@ -96,10 +98,12 @@
     <div class="container mx-auto text-center">
       <p><span aria-hidden="true">📞</span> <a href="tel:+12674146687" class="hover:underline">(267) 414-6687</a> | <span aria-hidden="true">✉</span> <a href="mailto:osakahibachi2door@gmail.com" class="hover:underline">osakahibachi2door@gmail.com</a></p>
       <p>© 2025 Favorite Hibachi Catering. All rights reserved.</p>
+      <p class="mt-1 text-sm opacity-90"><a href="privacy.html" class="hover:underline">Privacy</a> · <a href="terms.html" class="hover:underline">Terms</a></p>
     </div>
   </footer>
 
   <button id="back-to-top" aria-label="Back to top" class="fixed bottom-6 right-6 hidden bg-red-500 text-white w-12 h-12 rounded-full shadow-lg hover:bg-red-600 z-40 text-2xl leading-none">↑</button>
+  <script src="pricing.js"></script>
   <script>
     (function(){
       const btn = document.getElementById('nav-toggle');
