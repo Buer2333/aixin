@@ -137,6 +137,7 @@
       const menu = document.getElementById('nav-menu');
       btn.addEventListener('click', () => {
         const isHidden = menu.classList.toggle('hidden');
+        menu.classList.toggle('flex', !isHidden);
         btn.setAttribute('aria-expanded', String(!isHidden));
       });
       menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
