@@ -3,3 +3,8 @@ Thumbs.db
 *.log
 .vscode/
 .idea/
+
+# Internal marketing assets — kept local, not published to this public Pages repo
+marketing/
+images/ai-gen/
+.claude/
